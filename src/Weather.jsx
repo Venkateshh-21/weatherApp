@@ -12,21 +12,22 @@ const Weather = () => {
   const onChange = (e) => {
     setButtonClicked(false);
     setInput(e.target.value);
+    setData({
+    temperature: "",
+    humidity: "",
+    condition: "",
+    windSpeed: "",
+  })
   };
   const onClick = (e) => {
     setButtonClicked(true);
-  };
-  useEffect(()=>{
-   
-  })
-  useEffect(() => {
     const fecthData = async () => {
       try{  
       let response = await fetch(
         `https://api.weatherapi.com/v1/current.json?key=b720f0f38ffc42a29af150859252806&q=${input}`
       );
       const data= await response.json()
-      if(data.error.code==1006){
+      if(!data.current){
         alert("Failed to fetch weatherdata")
       }
     
@@ -43,13 +44,14 @@ const Weather = () => {
     }
     };
     fecthData()
-  }, [buttonClicked]);
+  };
+ 
 
   return (
     <div>
       <div>
-        <input type="text" value={input} onChange={onChange} />
-        <button onClick={onClick}>Search</button>
+        <input type="text" value={input} onChange={onChange} className="input" />
+        <button onClick={onClick} className="button">Search</button>
       </div>
       <div>
         <div>
