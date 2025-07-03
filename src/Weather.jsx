@@ -52,7 +52,7 @@ const Weather = () => {
   };
 
   return (
-    <div>
+    <div className="wrapper">
       <div>
         <input
           type="text"
