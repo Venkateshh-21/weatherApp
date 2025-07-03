@@ -69,16 +69,16 @@ const Weather = () => {
         <p>Loading data...</p>
       ) : (
         <div className="weather-cards">
-          <div>
+          <div className="weather-card">
             <h2>Tempearature</h2> <p>{data.temperature}</p>
           </div>
-          <div>
+          <div className="weather-card">
             <h2>Humidity</h2> <p>{data.humidity}</p>
           </div>
-          <div>
+          <div className="weather-card">
             <h2>Condition</h2> <p>{data.condition}</p>
           </div>
-          <div>
+          <div className="weather-card">
             <h2>WindSpeed</h2> <p>{data.windSpeed}</p>
           </div>
         </div>
